@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                         switch (view.getId()){
                             case R.id.dialog_text:
                                TextView textView = (TextView) dialog.findViewById(R.id.dialog_text);
-                               textView.setText("我点击了弹窗dialog");
+                               textView.setText("我点击了弹窗");
                                 Toast.makeText(MainActivity.this,"我点击了弹窗dialog",Toast.LENGTH_SHORT).show();
                                 break;
                         }
