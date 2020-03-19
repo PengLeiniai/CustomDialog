@@ -1,0 +1,2 @@
+rootProject.name='CustmDialog'
+include ':app'
