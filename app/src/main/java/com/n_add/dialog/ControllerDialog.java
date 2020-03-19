@@ -38,10 +38,16 @@ public class ControllerDialog extends BaseDialogFragment {
             return 0;
         }
         controller = Objects.requireNonNull(getArguments()).getParcelable("controller");
-        if (controller != null && controller.getLayoutResIds() != 0){
+        if (controller != null && controller.getLayoutResIds() != 0) {
             layoutResIds = controller.getLayoutResIds();
         }
         return layoutResIds;
+    }
+
+    @Override
+    public void init() {
+        assert controller != null;
+        setCancelable(controller.getCancelable());
     }
 
     @Override
@@ -50,6 +56,12 @@ public class ControllerDialog extends BaseDialogFragment {
         for (int resid : controller.getOnClickResId()) {
             findViewById(resid).setOnClickListener(this);
         }
+        rootView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismissAllowingStateLoss();
+            }
+        });
     }
 
     @Override
@@ -61,6 +73,7 @@ public class ControllerDialog extends BaseDialogFragment {
 
     /**
      * 布局xml
+     *
      * @param layoutResIds int
      */
     public void setLayoutResIds(int layoutResIds) {
@@ -69,6 +82,7 @@ public class ControllerDialog extends BaseDialogFragment {
 
     /**
      * view点击事件监听器
+     *
      * @param clickListener onClickListener
      */
     public void setClickListener(onClickListener clickListener) {
@@ -78,6 +92,7 @@ public class ControllerDialog extends BaseDialogFragment {
     interface onClickListener {
         /**
          * View点击事件
+         *
          * @param view View
          */
         void onClick(View view);
@@ -85,6 +100,7 @@ public class ControllerDialog extends BaseDialogFragment {
 
     /**
      * 显示Dialog
+     *
      * @param activity Activity
      * @return ControllerDialog
      */
@@ -103,6 +119,7 @@ public class ControllerDialog extends BaseDialogFragment {
     interface InitView {
         /**
          * 初始化View
+         *
          * @param controllerDialog
          */
         void initView(ControllerDialog controllerDialog);

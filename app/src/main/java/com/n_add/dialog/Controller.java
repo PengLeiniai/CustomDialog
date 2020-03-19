@@ -24,4 +24,8 @@ public abstract class Controller implements Parcelable,ControllerInterface{
 
     }
 
+    @Override
+    public boolean getCancelable() {
+        return false;
+    }
 }

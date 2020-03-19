@@ -28,7 +28,6 @@ public abstract class BaseDialogFragment extends DialogFragment implements BaseI
         return activity;
     }
 
-    @SuppressLint("ObsoleteSdkInt")
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -39,7 +38,6 @@ public abstract class BaseDialogFragment extends DialogFragment implements BaseI
         }
     }
 
-    @SuppressLint("ObsoleteSdkInt")
     @SuppressWarnings("deprecation")
     @Override
     public void onAttach(Activity activity) {

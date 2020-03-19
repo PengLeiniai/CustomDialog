@@ -27,6 +27,11 @@ public class MainActivity extends AppCompatActivity {
                     public int[] getOnClickResId() {
                         return super.getOnClickResId(R.id.dialog_text);
                     }
+
+                    @Override
+                    public boolean getCancelable() {
+                        return true;
+                    }
                 }).setInitView(new ControllerDialog.InitView() {
                     @Override
                     public void initView(ControllerDialog controllerDialog) {

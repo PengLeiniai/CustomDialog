@@ -17,4 +17,11 @@ public interface ControllerInterface{
      * @return int[]
      */
     int[] getOnClickResId();
+
+    /**
+     * 点击外部是否关闭dialog
+     * @return boolean
+     */
+    boolean getCancelable();
+
 }
